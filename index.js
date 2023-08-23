@@ -11,11 +11,11 @@ app.use(responseTime())
 
 app.get('/', async (_req, res) => {
 
-  const cachedValue = await redis.get('users')
-  if(cachedValue) {
-    console.log('Fetching from cache')
-    return res.json(JSON.parse(cachedValue))
-  }
+  // const cachedValue = await redis.get('users')
+  // if(cachedValue) {
+  //   console.log('Fetching from cache')
+  //   return res.json(JSON.parse(cachedValue))
+  // }
 
   const users = await prisma.users.findMany({
     include: {
